@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孙佳钰-Presentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background-color: #f8f5f2;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .intro-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .intro-text h2 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .intro-text h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+        
+        .intro-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .intro-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .intro-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .comparison {
+            padding: 60px 0;
+            background-color: #f8f5f2;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .comparison-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .comparison-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .comparison-text {
+            padding: 20px;
+        }
+        
+        .comparison-text h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .videos {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-item {
+            background: #f8f5f2;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-item:hover .video-thumbnail img {
+            transform: scale(1.1);
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(231, 76, 60, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .play-button:hover {
+            background: rgba(231, 76, 60, 1);
+        }
+        
+        .play-button::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-info h3 i {
+            margin-right: 10px;
+            color: #e74c3c;
+        }
+        
+        .video-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .intro-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>《非人哉》</h1>
+                <p class="subtitle">传统神话与现代生活的完美融合</p>
+            </div>
+        </div>
+    </header>
+    
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>独特的艺术风格</h2>
+                    <p>《非人哉》是一部幽默地描绘中国古代神话角色在现代生活中故事的动画，充满了创意。</p>
+                    <p>最吸引人的是它独特的艺术风格——使用纯净的平涂色块进行勾勒，没有复杂的阴影，但最终呈现的画面却生动传神，魅力十足。</p>
+                    <div class="quote">
+                        "这种极简的手法营造出一种既现代又蕴含浓厚中国风的独特美感，干净清爽的视觉效果令人耳目一新。"
+                    </div>
+                    <p>动画中，古代神话人物如哪吒、观音、孙悟空等在现代社会中过着普通人的生活，这种反差萌和幽默感让观众忍俊不禁。</p>
+                </div>
+                <div class="intro-image">
+                    <img src="https://i1.hdslb.com/bfs/archive/bb11ee02c92772b424b667420903f8c15caddf0d.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="非人哉角色展示">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <img src="https://i1.hdslb.com/bfs/archive/8bc89a7fafa3e54cf77f4bb18c908baac4c27d2b.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="非人哉" class="comparison-img">
+                    <div class="comparison-text">
+                        <h3>非人哉</h3>
+                        <p>干净清爽的简笔画风格，配色鲜艳但保留中国风的柔和感，整体呈现传统水墨韵味与现代平面设计的结合。</p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <img src="https://i1.hdslb.com/bfs/archive/895d4e408ccf83e27152da09ba8f9269befe0d8f.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="浮生一戏" class="comparison-img">
+                    <div class="comparison-text">
+                        <h3>浮生一戏</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <img src="https://i1.hdslb.com/bfs/archive/459f01444c915cb7f42b9f6effdc7d7d5ea51e2a.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="异形舞台" class="comparison-img">
+                    <div class="comparison-text">
+                        <h3>异形舞台</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="videos">
+        <div class="container">
+            <h2 class="section-title">精彩片段欣赏</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="https://i1.hdslb.com/bfs/archive/02ccedc62a649586a32924716c3d33e943f60ea1.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="非人哉视频预览">
+                        <div class="play-button" onclick="window.open('https://www.bilibili.com/video/BV1Ns41177ri/?spm_id_from=333.337.search-card.all.click')"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3><i class="fas fa-play-circle"></i> 非人哉</h3>
+                        <p>当代神仙妖怪的烟火气日常</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="https://i1.hdslb.com/bfs/archive/ee92a0bbc7cdac0cd0553657dc1a8146a3567c5f.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="浮生一戏视频预览">
+                        <div class="play-button" onclick="window.open('https://www.bilibili.com/video/BV1uWEfz2EsK/?spm_id_from=333.337.search-card.all.click')"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3><i class="fas fa-play-circle"></i> 浮生一戏</h3>
+                        <p>和爱的人在一起哪里都可以</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="https://i2.hdslb.com/bfs/archive/740a45dfdfc8abfc606003d0abd0708001a240bb.jpg@672w_378h_1c_!web-search-common-cover.avif" alt="异形舞台视频预览">
+                        <div class="play-button" onclick="window.open('https://www.bilibili.com/video/BV1wPySY8E6i/?spm_id_from=333.337.search-card.all.click')"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3><i class="fas fa-play-circle"></i> 异形舞台</h3>
+                        <p>科幻音乐企划，反乌托邦的悲剧性色彩</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>感谢您的观看！</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
